@@ -34,7 +34,8 @@ const listSchema = {
     title: String,
     description: String,
     creator: String,
-    items: [itemSchema]
+    items: [itemSchema],
+    creationDate: Date
 };
 
 const List = mongoose.model("List", listSchema);
@@ -143,12 +144,14 @@ app.post('/createList', (req, res) => {
     const listCreator = req.body.listCreator;
     const listTitle = req.body.listTitle;
     const listDescription = req.body.listDescription;
+    const listDate = new Date();
 
     const newList = new List({
         title: listTitle,
         creator: listCreator,
         description: listDescription,
-        items: []
+        items: [],
+        creationDate: listDate
     });
 
     newList.save()

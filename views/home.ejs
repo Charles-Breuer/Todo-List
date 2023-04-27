@@ -16,7 +16,7 @@
                     <a href="/lists/<%= list.id %>" class="list-group-item list-group-item-action" aria-current="true">
                         <div class="d-flex w-100 justify-content-between">
                           <h5 class="mb-1"><%= list.title %></h5>
-                          <small>Updated 3 days ago</small>
+                          <small>Creation Date: <%= list.creationDate.toLocaleDateString() %></small>
                         </div>
                         <p class="mb-1">Description: <%= list.description %></p>
                         <small>Creator: <%= list.creator %></small>
