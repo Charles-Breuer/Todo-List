@@ -1,0 +1,31 @@
+<%- include("header") -%>
+
+
+  <section id="topics">
+    <div class="container-md">
+        <div class="row my-5 g-5 justify-content-around align-items-center">
+            <div class="col-12 col-sm-4 d-none d-sm-block">
+                <img src="/assets/todo-guy.png" class="img-fluid" alt="ebook">
+            </div>
+            <div class="col-12 col-sm-7">
+                <h2 class="display-5 text-center fw-bold">Current Lists</h2>
+
+              <div class="list-group mt-5">
+
+                <% listOfLists.forEach(function (list) { %>
+                    <a href="/lists/<%= list.id %>" class="list-group-item list-group-item-action" aria-current="true">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1"><%= list.title %></h5>
+                          <small>Updated 3 days ago</small>
+                        </div>
+                        <p class="mb-1">Description: <%= list.description %></p>
+                        <small>Creator: <%= list.creator %></small>
+                      </a>
+               <% }); %>
+              </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include("footer") -%>

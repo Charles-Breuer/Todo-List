@@ -1,0 +1,54 @@
+<%- include("header") -%>
+
+<section id="contact">
+    <div class="container-lg mt-5">
+        <div class="text-center">
+            <h2 class="display-3 text-light">Create New List</h2>
+        </div>
+        <div class="row justify-content-center my-5">
+            <div class="col-lg-6">
+                <form action="/createList" method="post">
+
+                    <label for="name" class="form-label text-light">Name of Creator:</label>
+                    <div class="input-group mb-4">
+                        <span class="input-group-text">
+                            <i class="bi bi-person-fill"></i>
+                        </span>
+                        <input type="text" name="listCreator" class="form-control" id="name" placeholder="e.g. Mario">
+                        <!-- tooltip -->
+                        <span class="input-group-text">
+                            <span class="tt" data-bs-placement="bottom" title="What's your name?">
+                                <i class="bi bi-question-circle text-muted"></i>
+                            </span>
+                        </span>
+                    </div>
+
+                    <label for="name" class="form-label text-light">Name of New List:</label>
+                    <div class="input-group mb-4">
+                        <span class="input-group-text">
+                            <i class="bi bi-person-fill"></i>
+                        </span>
+                        <input type="text" name="listTitle" class="form-control" id="name" placeholder="e.g. Shopping List">
+                        <!-- tooltip -->
+                        <span class="input-group-text">
+                            <span class="tt" data-bs-placement="bottom" title="What kind of list are you trying to make?">
+                                <i class="bi bi-question-circle text-muted"></i>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="mb-4">
+                        <label for="query" class="form-label text-light">Description of List:</label>
+                        <textarea name="listDescription" style="height: 140px" id="query" class="form-control"></textarea>  
+                    </div>
+
+                    <div class="mb-4 text-center">
+                        <button class="btn btn-secondary" type="submit">Submit</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include("footer") -%>
