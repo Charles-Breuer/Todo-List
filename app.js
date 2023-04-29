@@ -30,13 +30,13 @@ const itemSchema = new mongoose.Schema({
 
 const Item = mongoose.model("Item", itemSchema);
 
-const listSchema = {
+const listSchema = new mongoose.Schema({
     title: String,
     description: String,
     creator: String,
     items: [itemSchema],
     creationDate: Date
-};
+});
 
 const List = mongoose.model("List", listSchema);
 
@@ -104,7 +104,6 @@ app.post('/addItem', (req, res) => {
             }
             else {
                 foundList.items.push(newItem);
-                console.log(foundList);
                 foundList.save()
                     .then(function () {
                         res.redirect('/lists/' + foundList.id);
@@ -140,7 +139,7 @@ app.post('/deleteItem', (req, res) => {
         .catch(function (err) { console.log(err); });
 });
 
-app.post('/createList', (req, res) => {
+app.post('/list', (req, res) => {
     const listCreator = req.body.listCreator;
     const listTitle = req.body.listTitle;
     const listDescription = req.body.listDescription;
